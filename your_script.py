@@ -1,4 +1,4 @@
-import os
+
 import pandas as pd
 import string
 import matplotlib.pyplot as plt
@@ -9,7 +9,7 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import nltk
 import matplotlib
 matplotlib.use('Agg')  # Use a non-interactive backend
-nltk.data.path.append(os.getenv('NLTK_DATA'))
+
 # Ensure necessary NLTK resources are downloaded
 nltk.download('stopwords')
 nltk.download('vader_lexicon')
