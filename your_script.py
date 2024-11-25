@@ -12,7 +12,7 @@ matplotlib.use('Agg')  # Use a non-interactive backend
 # Ensure necessary NLTK resources are downloaded
 nltk.download('stopwords')
 nltk.download('vader_lexicon')
-nltk.download('punkt')
+nltk.download('punkt_tab')
 
 def brand_insights(df, top_n=10, filter_negative=False):
     # Step 1: Data Preparation
