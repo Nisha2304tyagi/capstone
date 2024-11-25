@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Upload</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            background: url('/static/bg1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: left; /* Align text to the left */
+            position: relative;
+            padding-left: 20px; /* Add some left padding */
+        }
+
+        body:before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
+        h1 {
+            margin-top: 50px;
+            font-size: 2.5rem;
+            color: #f4f4f4;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        form {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 16px;
+            padding: 20px;
+            display: inline-block;
+            text-align: left;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            width: 80%; /* Reduced width */
+            max-width: 300px; /* Made it smaller */
+        }
+
+        label {
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 8px;
+            color: #ddd;
+        }
+
+        input[type="file"], select, input[type="number"], input[type="checkbox"], button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input[type="file"], input[type="number"], select {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        input[type="file"]:hover, input[type="number"]:hover, select:hover {
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        input[type="checkbox"] {
+            width: auto;
+        }
+
+        button {
+            background: linear-gradient(45deg, #007BFF, #00D4FF);
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #0056b3, #009edf);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .container {
+            display: flex;
+            justify-content: flex-start; /* Align form to the left */
+            align-items: center;
+            height: 100vh;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #aaa;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            color: #00D4FF;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            form {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1>Upload Your CSV File</h1>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <label for="csv_file"><i class="fas fa-file-upload"></i> Select CSV File:</label>
+                <input type="file" id="csv_file" name="csv_file" accept=".csv" required>
+
+                <label for="analysis_type"><i class="fas fa-cogs"></i> Analysis Type:</label>
+                <select id="analysis_type" name="analysis_type" required>
+                    <option value="sentiment">Sentiment Analysis</option>
+                    <option value="keywords">Keyword Extraction</option>
+                    <option value="both">Both</option>
+                </select>
+
+                <label for="top_n"><i class="fas fa-list-ol"></i> Number of Keywords to Extract (Top N):</label>
+                <input type="number" id="top_n" name="top_n" value="10" min="1" required>
+
+                <label for="filter_negative"><i class="fas fa-filter"></i> Filter Negative Reviews Only:</label>
+                <input type="checkbox" id="filter_negative" name="filter_negative">
+
+                <button type="submit"><i class="fas fa-upload"></i> Submit</button>
+            </form>
+            <footer>Powered by Your Brand | <a href="/">Home</a></footer>
+        </div>
+    </div>
+</body>
+</html>
