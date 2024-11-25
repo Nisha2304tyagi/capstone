@@ -1,4 +1,7 @@
 flask
+pandas==1.5.3
+nltk==3.8.1
+matplotlib==3.7.1
 pandas
 matplotlib
 nltk
