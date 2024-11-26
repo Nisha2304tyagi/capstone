@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 import os
 import pandas as pd
+import ntlk
 from your_script import brand_insights  # Import your analysis script
 nltk.data.path.append(os.getenv('NLTK_DATA'))
 # Initialize the Flask app
